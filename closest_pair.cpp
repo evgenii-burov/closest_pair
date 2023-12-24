@@ -2,7 +2,6 @@
 
 #include <stdexcept>
 #include <algorithm>
-#include <cmath>
 
 using namespace std;
 
@@ -49,19 +48,19 @@ std::pair<Point, Point> closest_pair(const std::vector<Point> &points) {
 
 	//Naive implementation
 
-	for (int i = 0; i < points.size() - 1; i++) {
-		for (int j = i+1; j < points.size(); j++) {
-			if (points[i].distance(points[j]) < min_distance) {
-				min_distance = points[i].distance(points[j]);
-				result_p1 = points[i];
-				result_p2 = points[j];
-			}
-		}
-	}
+	//for (int i = 0; i < points.size() - 1; i++) {
+	//	for (int j = i+1; j < points.size(); j++) {
+	//		if (points[i].distance(points[j]) < min_distance) {
+	//			min_distance = points[i].distance(points[j]);
+	//			result_p1 = points[i];
+	//			result_p2 = points[j];
+	//		}
+	//	}
+	//}
 	 
 	//Implementation using divide and conquer strategy
 
-	/*if (points.size() <= 3) {
+	if (points.size() <= 3) {
 		for (int i = 0; i < int(points.size()) - 1; i++) {
 			for (int j = i + 1; j < points.size(); j++) {
 				if (points[i].distance(points[j]) < min_distance) {
@@ -96,7 +95,7 @@ std::pair<Point, Point> closest_pair(const std::vector<Point> &points) {
 			result_p1 = pb.first;
 			result_p2 = pb.second;
 		}
-	}*/
+	}
 
 	auto result = std::make_pair(result_p1, result_p2);
 	return result;
